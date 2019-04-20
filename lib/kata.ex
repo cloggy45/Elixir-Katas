@@ -4,18 +4,15 @@ defmodule Kata do
   """
 
   @doc """
-  Hello world.
+  https://www.codewars.com/kata/5667e8f4e3f572a8f2000039
+
 
   ## Examples
 
-      iex> Kata.hello()
-      :world
+      iex> Kata.accum "abcd"
+      "A-Bb-Ccc-Dddd"
 
   """
-  def hello do
-    :world
-  end
-
   def accum(someString) do
     String.split(someString, "")
     |> Enum.filter(fn letter -> letter !== "" end)
