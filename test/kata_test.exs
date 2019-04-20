@@ -8,7 +8,7 @@ defmodule KataTest do
     assert Kata.accum("cwAt") == "C-Ww-Aaa-Tttt"
   end
 
-  test "generate" do
-    assert :s
+  test "should add all elements in a list together" do
+    assert Kata.sum([1, 5.2, 4, 0, -1]) == 9.2
   end
 end
