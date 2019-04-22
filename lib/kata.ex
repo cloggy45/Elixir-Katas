@@ -66,11 +66,11 @@ defmodule Kata do
   Y: 'Y',
   Z: '2'
 }
-    wordLength = String.length(someWord) + 1
+
     String.split(someWord, "")
     |> Enum.with_index
-    |> Enum.reject(fn({_, val}) -> val == 0 or val == wordLength end)
-    |> Enum.map(fn({key, _}) -> alphabet[String.to_atom(key)]  end)
+    |> Enum.reject(fn {_, val} -> val == 0 or val == String.length(someWord) + 1 end)
+    |> Enum.map(fn {key, _} -> alphabet[String.to_atom(key)] end)
     |> Enum.map(fn letter -> if is_nil(letter) do " " else letter end end)
     |> Enum.join
   end
