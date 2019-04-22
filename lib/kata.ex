@@ -66,26 +66,12 @@ defmodule Kata do
   Y: 'Y',
   Z: '2'
 }
+    wordLength = String.length(someWord) + 1
     String.split(someWord, "")
-    |> Enum.map(fn letter ->
-        if letter == "" or letter == " " do
-          letter
-        else
-          String.to_atom letter
-        end
-      end)
-    |> Enum.map(fn atom -> alphabet[atom] end)
-    |> Enum.map(fn element ->
-      if is_nil element do
-        " "
-      else
-        element
-      end
-    end)
+    |> Enum.with_index
+    |> Enum.reject(fn({_, val}) -> val == 0 or val == wordLength end)
+    |> Enum.map(fn({key, _}) -> alphabet[String.to_atom(key)]  end)
+    |> Enum.map(fn letter -> if is_nil(letter) do " " else letter end end)
     |> Enum.join
-  end
-
-  def is_not_first_index_or_last(currentIndex, list) do
-    Enum.count(list) - 1 != currentIndex and currentIndex != 0
   end
 end
